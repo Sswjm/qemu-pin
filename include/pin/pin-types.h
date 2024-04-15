@@ -1,8 +1,10 @@
-#ifndef PIN_TYPES_H
-#define PIN_TYPES_H
+#ifndef QEMU_PIN_TYPES_H
+#define QEMU_PIN_TYPES_H
 
 #include<stdint.h>
 #include<stdio.h>
+#include<stdbool.h>
+#include"pin/opc.h"
 
 typedef unsigned char BOOL;
 typedef void VOID;
@@ -30,5 +32,7 @@ typedef UINT16 OPCODE;
 typedef VOID (*AFUNPTR)(void);
 
 typedef uint32_t SYSCALL_STANDARD;
+
+typedef enum LA_OPCODE LA_OPCODE;  // loongarch64 opcode
 
 #endif

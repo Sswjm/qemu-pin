@@ -1,5 +1,5 @@
-#ifndef PIN_DS_H
-#define PIN_DS_H
+#ifndef QEMU_PIN_DS_H
+#define QEMU_PIN_DS_H
 
 #include"qemu/qemu-plugin.h"
 
