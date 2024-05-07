@@ -1,8 +1,7 @@
-#ifndef QEMU_PIN_DS_H
-#define QEMU_PIN_DS_H
+#ifndef QEMU_PIN_OBJS_H
+#define QEMU_PIN_OBJS_H
 
-#include"qemu/qemu-plugin.h"
-#include"pin/pin-types.h"
+#include "types.h"
 
 typedef struct la_opnd {
     int val;
@@ -15,22 +14,22 @@ typedef struct qemu_pin_la_insn{
 } LA_INSN;
 
 typedef struct qemu_pin_ins {
-    struct qemu_pin_ins *prev;
-    struct qemu_pin_ins *next;
-
     uint64_t pc;
     uint32_t opcode;
     LA_INSN insn;
+
+    struct qemu_pin_ins *prev;
+    struct qemu_pin_ins *next;
 } *INS;
 
 typedef struct qemu_pin_bbl {
-    struct qemu_pin_bbl *prev;
-    struct qemu_pin_bbl *next;
-
     uint64_t pc;
-    int nr_ins;
+    int ins_count;
     INS ins_head;
     INS ins_tail;
+
+    struct qemu_pin_bbl *prev;
+    struct qemu_pin_bbl *next;
 } *BBL;
 
 typedef struct qemu_pin_trace {
@@ -42,6 +41,8 @@ typedef struct qemu_pin_trace {
     BBL bbl_tail;
 } *TRACE;
 
-void tr_init(void *);
-void tr_fini(void);
-#endif PIN_DS_H
+INS create_INS(uint64_t pc);
+BBL create_BBL(uint64_t pc);
+TRACE create_TRACE(uint64_t pc);
+
+#endif

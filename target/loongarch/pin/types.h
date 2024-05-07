@@ -1,10 +1,10 @@
 #ifndef QEMU_PIN_TYPES_H
 #define QEMU_PIN_TYPES_H
 
-#include<stdint.h>
-#include<stdio.h>
-#include<stdbool.h>
-#include"pin/opc.h"
+#include <stdint.h>
+#include <stdio.h>
+#include <stdbool.h>
+#include "opc.h"
 
 typedef unsigned char BOOL;
 typedef void VOID;
